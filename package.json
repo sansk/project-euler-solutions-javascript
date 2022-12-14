@@ -1,0 +1,26 @@
+{
+  "name": "project-euler-solutions-javascript",
+  "version": "1.0.0",
+  "description": "Project Euler Solutions in Javascript",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sansk/project-euler-solutions-javascript.git"
+  },
+  "keywords": [
+    "project-euler-solutions"
+  ],
+  "author": "Sangy K",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sansk/project-euler-solutions-javascript/issues"
+  },
+  "homepage": "https://github.com/sansk/project-euler-solutions-javascript#readme",
+  "dependencies": {
+    "chalk": "^5.2.0"
+  }
+}
