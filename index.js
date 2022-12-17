@@ -17,8 +17,8 @@ if (isNaN(+(arg))) {
         const stats = fs.statSync(file);
         
         if (stats.isFile()) {
-            log(bBlu("Executing Day" + arg + "..."));
-            log(blu("******************"));
+            log(bBlu("Executing Problem #" + arg + "..."));
+            log(blu("************************"));
             execSync('node ./' + arg + '/index.js', { stdio: [0, 1, 2] });
         }
     } catch (err) {
