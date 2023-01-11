@@ -1,57 +1,41 @@
-// This code failed for 5 test cases saying `timed out`
-// Need to further adjust the complexity.
-const sequence = n => {
-    let currVal = n,
-        seqArr = [n];
+function processData(input) {
+    const collatzSeqCount = n => {
+        let seqCount = 1;
 
-    while (currVal != 1) {
-        if (currVal % 2 === 0) {
-            currVal = currVal / 2;
-        } else {
-            currVal = ((3 * currVal) + 1);
+        if (n === 1) {
+            seqCount = 1;
         }
-        seqArr.push(currVal);
-    }
 
-    return (seqArr);
-}
-
-const calcLongestSeq = (limit, seqMap) => {
-    let longestSeq = 1,
-        longestVal = 1,
-        startNumber = 2;
-
-    if (seqMap.size > 0) {
-        startNumber = seqMap.size + 2;
-    }
-    
-    if (startNumber <= limit) {
-        for (let i = startNumber; i <= limit; i++) {
-            let getSeqArr = sequence(i);
-            seqMap.set(i, {
-                seq: getSeqArr,
-                len: getSeqArr.length
-            });
+        while (n > 1) {
+            if (n % 2 === 0) {
+                n = n / 2;
+                seqCount++;
+            } else {
+                n = (3 * n + 1) / 2;
+                seqCount += 2;
+            }
         }
+        return seqCount;
     }
-    
-    for(let i = 2; i <= limit; i++) {
-        let val = seqMap.get(i);
-        if (val.len >= longestSeq) {
-            longestSeq = val.len;
-            longestVal = val.seq[0];
+
+    const calcSeq = () => {
+        let arr = [];
+        let arrSize = 5 * Math.pow(10, 6);
+        let maxCount = 0;
+        let result = 0;
+
+        for (let i = 0; i <= arrSize; i++) {
+            let count = collatzSeqCount(i);
+            if (count > maxCount || count === maxCount) {
+                maxCount = count;
+                result = i;
+            }
+            arr[i] = result;
+        }
+        let values = input.split("\n");
+        for (let i = 1; i < values.length; i++) {
+            console.log(arr[values[i]]);
         }
     }
-
-    return longestVal;
-}
-
-const seqMap = new Map();
-const values = [15, 10, 16, 20];
-
-for (let i = 0; i < values.length; i++) {
-    console.time("p#14");
-    console.log(calcLongestSeq(values[i], seqMap));
-    console.timeEnd("p#14");
-    console.log("=================================================================");
+    calcSeq();
 }
