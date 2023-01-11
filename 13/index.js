@@ -3,9 +3,12 @@ const findSum = input => {
         sum = 0;
 
     values.forEach(value => {
+        // `+` is prefixed to convert to `Number` as it is passed as `String`
+        // console.log(typeOf value); // string
         sum += +(value);
     })
-
+    // to display full width digits for bigger numbers represented in scientific format eg 3.84568473654e+49
+    // 'useGrouping' to say whether to use grouping separators, such as thousands separators
     return sum.toLocaleString('fullwide', { useGrouping: false }).slice(0, 10);
 }
 
