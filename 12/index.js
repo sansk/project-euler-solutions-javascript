@@ -1,23 +1,6 @@
-// This function is used to find the nth triangular Number.
-// Eg: 7th Triangular Number = 28
-// const findTriangularNum = n => {
-//     return ((n * (n + 1)) / 2);
-// }
+import { properDivisors, findTriangularNum } from '../utils/utilities.js';
 
-function divisorCount(n) {
-    let count = 0;
-    for (let i = 1; i <= Math.floor(Math.sqrt(n)); i++) {
-        if (n % i === 0) {
-            if (i ** 2 !== n) {
-                count += 2;
-            }
-        }
-    }
-    if (Number.isInteger(Math.sqrt(n))) {
-        count = count + 1
-    }
-    return count;
-}
+
 
 const findDivTriNum = nDivs => {
     let i = 1,
@@ -25,8 +8,10 @@ const findDivTriNum = nDivs => {
     while (true) {
         let divCount = 0;
 
+        // Either use formula or a simple addition to triNum.
+        //triNum = findTriangularNum(i); => check in utils/utilities.js file.
         triNum += i;
-        divCount = divisorCount(triNum);
+        divCount = properDivisors(triNum).length;
 
         if (divCount >= nDivs) return triNum;
 
