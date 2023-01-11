@@ -12,6 +12,17 @@ const findSum = input => {
     return sum.toLocaleString('fullwide', { useGrouping: false }).slice(0, 10);
 }
 
+// Can also use BigInt type to handle bigger Numbers.
+const bigIntFindSum = input => {
+    let values = input.split('\n'),
+        sum = 0n;
+
+    for (let i = 1n; i < values.length; i++) {
+        sum += BigInt(+(values[i]));
+    }
+    console.log(sum.toString().slice(0, 10));
+}
+
 
 const input = `37107287533902102798797998220837590246510135740250
 46376937677490009712648124896970078050417018260538
