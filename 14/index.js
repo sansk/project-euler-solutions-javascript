@@ -1,12 +1,9 @@
 const collatzSeqCount = n => {
     let seqCount = 1;
 
-    if (n === 1) {
-        seqCount = 1;
-    }
+    if (n === 1) seqCount = 1;
 
     while (n > 1) {
-        seqCount++;
         if (n % 2 === 0) {
             n = n / 2;
         } else {
@@ -15,6 +12,7 @@ const collatzSeqCount = n => {
             // Check HackerreankSolution.js for that approach.
             n = (3 * n + 1);
         }
+        seqCount++;
     }
     return seqCount;
 }
@@ -36,3 +34,33 @@ const calcLongestSeq = limit => {
 }
 
 console.log(calcLongestSeq(1000000));
+
+/* 
+Another method is to cache all the chain lengths along the way 
+Used Map() object to save the chain length for each number.
+*/
+let seqCountMap = new Map();
+const collatzSeqCountAnoterMethod = n => {
+    let seqCount = 1,
+        initial = n;
+
+    if (n === 1) {
+        seqCount = 1;
+    }
+
+    while (n > 1) {
+        if (seqCountMap.has(n)) {
+            seqCount += seqCountMap.get(n);
+            return seqCount;
+        }
+
+        if (n % 2 === 0) {
+            n = n / 2;
+        } else {
+            n = (3 * n + 1);
+        }
+        seqCount++;
+    }
+    seqCountMap.set(initial, seqCount);
+    return seqCount;
+}
