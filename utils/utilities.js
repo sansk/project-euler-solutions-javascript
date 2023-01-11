@@ -23,5 +23,4 @@ export const properDivisors = n => {
     This function is used to find the nth triangular Number. It returns the integer.
     Eg: 7th Triangular Number = 28
 */
-// 
 export const findTriangularNum = n => (n * (n + 1)) / 2;
