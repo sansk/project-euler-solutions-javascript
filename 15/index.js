@@ -4,7 +4,7 @@ const latticePathsRecursive = (m, n = m) => {
     return (latticePathsRecursive(m - 1, n) + latticePathsRecursive(m, n - 1));
 }
 
-const latticePathsCombinatorics = (k, n) => {
+const latticePathsCombinatorics = (m, n) => {
     const factorial = (number) => {
         if (number === 1 || number === 0) {
             return 1;
@@ -13,8 +13,8 @@ const latticePathsCombinatorics = (k, n) => {
         }
     }
 
-    let r = k + n;
-    let res = factorial(r) / (factorial(r-n) * factorial(n));
+    let k = m + n;
+    let res = factorial(k) / (factorial(k-n) * factorial(n));
     return res;
 }
 
