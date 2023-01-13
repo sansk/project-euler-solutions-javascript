@@ -18,4 +18,23 @@ const latticePathsCombinatorics = (k, n) => {
     return res;
 }
 
-console.log('Result is ' + latticePathsCombinatorics(4, 4));
+console.log(latticePathsCombinatorics(4, 4)); // 70
+console.log(latticePathsCombinatorics(3, 4)); // 35
+console.log(latticePathsCombinatorics(20, 20)); // 137846528820
+
+// Hackerrank - Using BigInt and Modulo
+// const latticePathsBinomialHR = (a, b) => {
+//     let M = 1000000007n;
+//     const factorial = (number) => {
+//         if (number === 1n || number === 0n) {
+//             return 1n;
+//         } else {
+//             return number * factorial(number - 1n);
+//         }
+//     }
+
+//     let n = BigInt(a) + BigInt(b),
+//         k = BigInt(a);
+//     let res = (factorial(n) / (factorial(k) * factorial(n - k))) % M;
+//     return Number(res);
+// }
