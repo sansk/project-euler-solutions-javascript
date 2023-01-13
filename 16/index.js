@@ -1,6 +1,7 @@
 const digitSum = n => {
     let power = 2n ** BigInt(n);
-    let strNum = '' + power;
+    // Convert BigInt into a String. Concatenating with an empty string, ''.
+    let strNum = '' + power; 
 
     return strNum.split('').map(Number).reduce((acc, curr) => acc + curr, 0);
 }
