@@ -46,4 +46,4 @@ const numToWords = num => {
     return result.join(' ');
 }
 
-console.log(numToWords(456));
+console.log(numToWords(456568642450));
